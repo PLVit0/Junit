@@ -33,7 +33,7 @@ public class ArrayUtilTest {
     }
 
     @Test //(expected = ArrayIsNull.class)
-    public void testSumArraysWhenArrayIsNull() throws ArrayIsNull {
+    public void testSumArraysWhenArrayIsNull() {
 //        int[] array = null;
 //        assertNull(arrayUtil.sumArrays(array));
         assertThrows(ArrayIsNull.class, () -> arrayUtil.sumArrays(null));
@@ -65,7 +65,7 @@ public class ArrayUtilTest {
     }
 
     @Test //(expected = ArrayIsNull.class)
-    public void testMulpiplyArraysWhenArrayIsNull() throws ArrayIsNull {
+    public void testMulpiplyArraysWhenArrayIsNull() {
 //        int[] array = null;
 //        assertNull(arrayUtil.productArrays(array));
         assertThrows(ArrayIsNull.class, () -> arrayUtil.productArrays(null));
