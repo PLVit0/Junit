@@ -41,5 +41,20 @@ public class PersonServiceTest {
         Person oldest = personService.findTheOldestPerson(null);
     }
 
+    @Test
+    public void shoouldReturnTheMostPopularCity(){
+        assertEquals("wawa", personService.findMostPopularCity(personList));
+    }
+
+    @Test(expected = NoSuchElementException.class)
+    public void shouldReturnNoSuchElementExceptionInMethodFindingMostPopularCityNull(){
+        String mostPopularCity = personService.findMostPopularCity(null);
+    }
+
+    @Test
+    public void shoouldReturnTheMostPopularCityCorrectlyIfExpectedIsWrongValue(){
+        assertNotEquals("lodz", personService.findMostPopularCity(personList));
+    }
+
 
 }
