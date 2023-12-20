@@ -67,7 +67,7 @@ public class PersonServiceTest {
     }
 
     @Test
-    public void shouldCheclIfThereIsNullValueFromCountingAverageAge(){
+    public void shouldCheckIfThereIsNullValueFromCountingAverageAge(){
         assertNotEquals(null, PersonService.countAverageAge(personList));
     }
 

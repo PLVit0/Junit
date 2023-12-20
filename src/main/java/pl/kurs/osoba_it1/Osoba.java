@@ -38,11 +38,10 @@ public class Osoba {
                 .filter(Predicate.not(u->u.getImie().endsWith("a")))
                 .collect(Collectors.toList());
     }
-    public static OptionalDouble sredniWiek(List<Osoba> lista){
+    public static double sredniWiek(List<Osoba> lista){
         return lista.stream()
                 .filter(Predicate.not(u->u.getImie().endsWith("a")))
-                .mapToDouble(u -> u.getWiek())
-                .average();
+                .collect(Collectors.averagingDouble(Osoba::getWiek));
     }
     public static Double sredniWiekMezczyzn(List<Osoba> lista, Predicate<Osoba> plec){
         return lista.stream()
