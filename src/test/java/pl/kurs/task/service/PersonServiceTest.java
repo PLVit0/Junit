@@ -52,8 +52,23 @@ public class PersonServiceTest {
     }
 
     @Test
-    public void shoouldReturnTheMostPopularCityCorrectlyIfExpectedIsWrongValue(){
+    public void shouldReturnTheMostPopularCityCorrectlyIfExpectedIsWrongValue(){
         assertNotEquals("lodz", personService.findMostPopularCity(personList));
+    }
+
+    @Test
+    public void shouldReturCorrectValueOfAverageAge(){
+        assertEquals(36.5, PersonService.countAverageAge(personList), 0.1 );
+    }
+
+    @Test
+    public void shouldCheckIfThereIsIncorrectValueFromCountingAverageAge(){
+        assertNotEquals(37, PersonService.countAverageAge(personList));
+    }
+
+    @Test
+    public void shouldCheclIfThereIsNullValueFromCountingAverageAge(){
+        assertNotEquals(null, PersonService.countAverageAge(personList));
     }
 
 
