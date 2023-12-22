@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 
 import static org.junit.Assert.*;
 
@@ -28,7 +29,7 @@ public class OsobaTest {
     }
 
     @Test
-    public void shouldReturnHowManyPeopleAreOlderThenAge17(){
+    public void shouldReturnHowManyPeopleAreOlderThenAge22(){
         assertEquals(4, Osoba.ileStarszych(listaOsob, 22));
     }
 
@@ -99,7 +100,15 @@ public class OsobaTest {
         assertNotEquals(null, Osoba.sredniWiek(listaOsob));
     }
 
+    @Test
+    public void shouldReturnCorrectAverageAgeForMales() {
+        List<Osoba> males = Arrays.asList(osoba, osoba2);
+        assertEquals(33.5, Osoba.sredniWiekMezczyzn(males, Predicate.not(u->u.getImie().endsWith("a"))), 0.1);
+    }
 
-
+    @Test
+    public void shouldReturnMostPopularCity() {
+        assertEquals("Lublin", Osoba.najpopularniejszeMiasto(listaOsob));
+    }
 
 }
